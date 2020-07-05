@@ -10,7 +10,7 @@
       name = "base_lib";
       version = "0.1.0";
       src = self;
-      outputs = [ "out" "dev"];
+      #outputs = [ "out" "dev"];
 
       nativeBuildInputs = [ cmake pkgconfig ];
       buildInputs = [
