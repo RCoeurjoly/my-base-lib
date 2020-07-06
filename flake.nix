@@ -1,10 +1,8 @@
 {
   description = "My base lib";
   
-  outputs = { self, nixpkgs }: {
-
-
-    defaultPackage.x86_64-linux = 
+  outputs = { self, nixpkgs }: rec {
+    packages.x86_64-linux.base_lib =
     with import nixpkgs { system = "x86_64-linux"; };
     stdenv.mkDerivation {
       name = "base_lib";
@@ -20,5 +18,7 @@
         doctest
       ];
     };
+
+    defaultPackage.x86_64-linux = packages.x86_64-linux.base_lib; 
   };
 }
